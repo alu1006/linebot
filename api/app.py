@@ -70,4 +70,4 @@ def shorten_url(long_url):
     return shortened_url
 
 if __name__ == "__main__":
-    app.run(port='8080')
+    app.run()
