@@ -19,6 +19,12 @@ handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 # 設定 Bit.ly 的 Access Token
 BITLY_ACCESS_TOKEN = os.getenv('BITLY_ACCESS_TOKEN')
 
+# domain root
+@app.route('/')
+def home():
+    return 'Hello, World!'
+
+
 @app.route("/webhook", methods=['POST'])
 def callback():
     # X-Line-Signature 是用來確認請求是由 Line 伺服器發送的
