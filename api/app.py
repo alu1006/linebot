@@ -16,7 +16,7 @@ app = Flask(__name__)
 # handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 
 # # 設定 Bit.ly 的 Access Token
-# BITLY_ACCESS_TOKEN = os.getenv('BITLY_ACCESS_TOKEN')
+BITLY_ACCESS_TOKEN = os.getenv('BITLY_ACCESS_TOKEN')
 
 # domain root
 @app.route('/')
