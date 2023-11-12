@@ -8,28 +8,12 @@ import os
 
 from flask import Flask, request, abort
 
-from linebot.v3 import (
-    WebhookHandler
-)
-from linebot.v3.exceptions import (
-    InvalidSignatureError
-)
-from linebot.v3.messaging import (
-    Configuration,
-    ApiClient,
-    MessagingApi,
-    ReplyMessageRequest,
-    TextMessage
-)
-from linebot.v3.webhooks import (
-    MessageEvent,
-    TextMessageContent
-)
 
 app = Flask(__name__)
 
-configuration = Configuration(access_token='CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('CHANNEL_SECRET')
+
+line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 # # 設定 Bit.ly 的 Access Token
 BITLY_ACCESS_TOKEN = os.getenv('BITLY_ACCESS_TOKEN')
 
