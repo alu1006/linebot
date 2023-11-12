@@ -12,8 +12,8 @@ from flask import Flask, request, abort
 app = Flask(__name__)
 
 
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+line_bot_api = LineBotApi('CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('CHANNEL_SECRET')
 # # 設定 Bit.ly 的 Access Token
 BITLY_ACCESS_TOKEN = os.getenv('BITLY_ACCESS_TOKEN')
 
