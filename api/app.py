@@ -6,17 +6,30 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
 
 
-# 載入環境變數
-# load_dotenv()
+from flask import Flask, request, abort
+
+from linebot.v3 import (
+    WebhookHandler
+)
+from linebot.v3.exceptions import (
+    InvalidSignatureError
+)
+from linebot.v3.messaging import (
+    Configuration,
+    ApiClient,
+    MessagingApi,
+    ReplyMessageRequest,
+    TextMessage
+)
+from linebot.v3.webhooks import (
+    MessageEvent,
+    TextMessageContent
+)
 
 app = Flask(__name__)
 
-# 設定 Line Bot 的 Channel Access Token 和 Channel Secret
-line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
-channel_secret = os.getenv('CHANNEL_SECRET')
-print(f'Channel Secret: {channel_secret}')
-
-handler = WebhookHandler(channel_secret)
+configuration = Configuration(access_token='CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('CHANNEL_SECRET')
 # # 設定 Bit.ly 的 Access Token
 BITLY_ACCESS_TOKEN = os.getenv('BITLY_ACCESS_TOKEN')
 
