@@ -13,8 +13,10 @@ app = Flask(__name__)
 
 # 設定 Line Bot 的 Channel Access Token 和 Channel Secret
 line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
-# handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
+channel_secret = os.getenv('CHANNEL_SECRET')
+print(f'Channel Secret: {channel_secret}')
 
+handler = WebhookHandler(channel_secret)
 # # 設定 Bit.ly 的 Access Token
 BITLY_ACCESS_TOKEN = os.getenv('BITLY_ACCESS_TOKEN')
 
