@@ -4,8 +4,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 from dotenv import load_dotenv
 import os
-import requests
-import json
+
 
 # 載入環境變數
 load_dotenv()
@@ -76,4 +75,4 @@ def home():
 #     return shortened_url
 
 if __name__ == "__main__":
-    app.run(port='8080')
+    app.run()
